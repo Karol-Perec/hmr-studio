@@ -1,3 +1,40 @@
+Do
+```
+models/
+```
+
+wrzuć
+
+```
+model.ckpt-667589.data-00000-of-00001
+```
+
+z rozpakowanego https://people.eecs.berkeley.edu/~kanazawa/cachedir/hmr/models.tar.gz
+
+Do
+```
+models/
+```
+
+wrzuć rozpakowane pliki z http://download.tensorflow.org/models/resnet_v2_50_2017_04_14.tar.gz
+
+Do 
+
+```
+datasets/tf_datasets
+```
+wrzuc rozpakowane pliki z 
+
+
+```
+TBD
+```
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 # End-to-end Recovery of Human Shape and Pose
 
 Angjoo Kanazawa, Michael J. Black, David W. Jacobs, Jitendra Malik

@@ -1,6 +1,4 @@
 .idea
 logs/*
 models/*
-datasets/human
-datasets/tf_datasets
 __pycache__

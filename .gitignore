@@ -1,6 +1,6 @@
 .idea
-logs/
-models/
+logs/*
+models/*
 datasets/human
 datasets/tf_datasets
 __pycache__

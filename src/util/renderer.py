@@ -352,7 +352,7 @@ def draw_skeleton(input_image, joints, draw_edges=True, vis=None, radius=None):
             18: 'light_green',
             14: 'purple'
         }
-    elif joints.shape[1] == 19:
+    elif joints.shape[1] == 14:
         parents = np.array([
             1,
             2,

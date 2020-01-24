@@ -30,7 +30,7 @@ SMPL_FACE_PATH = osp.join(curr_path, '../src/tf_smpl', 'smpl_faces.npy')
 
 # Default pred-trained model path for the demo.
 # PRETRAINED_MODEL = osp.join(model_dir, 'model.ckpt-8600')
-PRETRAINED_MODEL = osp.join(model_dir, 'model.ckpt-667589')
+PRETRAINED_MODEL = osp.join(model_dir, 'model.ckpt-300526')
 
 flags.DEFINE_string('smpl_model_path', SMPL_MODEL_PATH,
                     'path to the neurtral smpl model')
@@ -50,7 +50,7 @@ flags.DEFINE_integer('num_stage', 3, '# of times to iterate regressor')
 flags.DEFINE_string('model_type', 'resnet_fc3_dropout',
                     'Specifies which network to use')
 flags.DEFINE_string(
-    'joint_type', 'cocoplus',
+    'joint_type', 'lsp',
     'cocoplus (19 keypoints) or lsp 14 keypoints, returned by SMPL')
 
 # Training settings:

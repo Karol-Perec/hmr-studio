@@ -8,6 +8,9 @@ DATA_DIR=datasets/tf_datasets
 LSP_DIR=datasets/human/lsp_dataset
 
 # This is the directory that contains README.txt
+IMDB_DIR=datasets/human/imdb
+
+# This is the directory that contains README.txt
 LSP_EXT_DIR=datasets/human/lsp_extended
 
 # This is the directory that contains 'images' and 'annotations'
@@ -33,7 +36,7 @@ MOSH_DIR=datasets/human/neutrMosh
 #python -m src.datasets.lsp_to_tfrecords --img_directory $LSP_DIR --output_directory $DATA_DIR/lsp
 
 # ----- LSP-extended -----
-python -m src.datasets.lsp_to_tfrecords --img_directory $LSP_EXT_DIR --output_directory $DATA_DIR/lsp_ext
+#python -m src.datasets.lsp_to_tfrecords --img_directory $LSP_EXT_DIR --output_directory $DATA_DIR/lsp_ext
 
 # ----- MPII -----
 #python -m src.datasets.mpii_to_tfrecords --img_directory $MPII_DIR --output_directory $DATA_DIR/mpii
@@ -43,6 +46,9 @@ python -m src.datasets.lsp_to_tfrecords --img_directory $LSP_EXT_DIR --output_di
 
 # ----- MPI-INF-3DHP -----
 #python -m src.datasets.mpi_inf_3dhp_to_tfrecords --data_directory $MPI_INF_3DHP_DIR --output_directory $DATA_DIR/mpi_inf_3dhp
+
+# ----- LSP -----
+python -m src.datasets.imdb_to_tfrecords --img_directory $IMDB_DIR --output_directory $DATA_DIR/imdb
 
 # ----- Mosh data, for each dataset -----
 # CMU:

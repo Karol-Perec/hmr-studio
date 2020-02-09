@@ -30,7 +30,7 @@ SMPL_FACE_PATH = osp.join(curr_path, '../src/tf_smpl', 'smpl_faces.npy')
 
 # Default pred-trained model path for the demo.
 # PRETRAINED_MODEL = osp.join(model_dir, 'model.ckpt-8600')
-PRETRAINED_MODEL = osp.join(model_dir, 'model.ckpt-300526')
+PRETRAINED_MODEL = osp.join(model_dir, 'model.ckpt-301178')
 
 flags.DEFINE_string('smpl_model_path', SMPL_MODEL_PATH,
                     'path to the neurtral smpl model')
@@ -67,7 +67,7 @@ flags.DEFINE_integer('epoch', 100, '# of epochs to train')
 #                   'datasets to use for training')
 # flags.DEFINE_list('mocap_datasets', ['CMU', 'H3.6', 'jointLim'],
 #                   'datasets to use for adversarial prior training')
-flags.DEFINE_list('datasets', ['lsp', 'lsp_ext', 'mpii', 'coco', 'mpi_inf_3dhp'],
+flags.DEFINE_list('datasets', ['lsp', 'lsp_ext', 'mpii', 'coco', 'mpi_inf_3dhp', 'imdb'],
                   'datasets to use for training')
 flags.DEFINE_list('mocap_datasets', ['CMU', 'jointLim'],
                   'datasets to use for adversarial prior training')
@@ -165,7 +165,7 @@ def prepare_dirs(config, prefix=['HMR']):
         # default_dataset = [
         #     'lsp', 'lsp_ext', 'mpii', 'coco', 'mpi_inf_3dhp'
         # ]
-        default_dataset = ['lsp', 'lsp_ext', 'mpii', 'coco', 'mpi_inf_3dhp']
+        default_dataset = ['lsp', 'lsp_ext', 'mpii', 'coco', 'mpi_inf_3dhp', 'imdb']
         default_mocap = ['CMU', 'jointLim']
 
         if sorted(config.datasets) != sorted(default_dataset):

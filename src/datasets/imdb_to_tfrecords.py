@@ -90,16 +90,16 @@ def _add_to_tfrecord(image_path, label, coder, writer):
             perAB < 0.7 or perAB > 1.3) or (perBC < 1 or perBC > 1.8)):
         return 0
 
-    #checks that the head is above the legs
-    if (pY[0] < pY[8]) :
+    # checks that the head is above the legs
+    if (pY[0] < pY[8]):
         return 0
 
-    #checks that the person is ahead (better quality 1.3-1.9 -> 1.5-1.7)
-    if (perAM < 1.3 or perAM > 1.9) :
+    # checks that the person is ahead (better quality 1.3-1.9 -> 1.5-1.7)
+    if (perAM < 1.3 or perAM > 1.9):
         return 0
 
-    #checks that the person is face to camera (reverse to change orientation)
-    if (pX[8] > pX[9]) :
+    # checks that the person is face to camera (reverse to change orientation)
+    if (pX[8] > pX[9]):
         return 0
 
     # copyfile(image_path, 'datasets/human/lsp_dataset/standingpose/' + image_path[len(image_path)-10:len(image_path)])
@@ -144,6 +144,31 @@ def load_mat(fname):
     # this is 3 x 14 x 2000
     return res['joints']
 
+def map_to_lsp_joints(labels):
+    _COMMON_JOINT_IDS = [
+        10,  # R ankle
+        9,  # R knee
+        8,  # R hip
+        11,  # L hip
+        12,  # L knee
+        13,  # L ankle
+        4,  # R Wrist
+        3,  # R Elbow
+        2,  # R shoulder
+        5,  # L shoulder
+        6,  # L Elbow
+        7,  # L Wrist
+        1,  # Neck top
+        0,  # Head top
+    ]
+
+    num_images = labels.shape[2]
+    mapped_labels = np.zeros((3, 14, num_images))
+
+    for i, jid in enumerate(_COMMON_JOINT_IDS):
+        mapped_labels[:, i, :] = labels[:, jid, :]
+
+    return mapped_labels
 
 def process_imdb(img_dir, out_dir, num_shards_train, num_shards_test):
     """
@@ -155,6 +180,8 @@ def process_imdb(img_dir, out_dir, num_shards_train, num_shards_test):
     labels = load_mat(join(img_dir, 'result.mat'))
     if labels.shape[0] != 3:
         labels = np.transpose(labels, (1, 0, 2))
+
+    labels = map_to_lsp_joints(labels)
 
     all_images = sorted([f for f in glob(join(img_dir, 'images/*.jpg'))])
 
@@ -168,7 +195,7 @@ def main(unused_argv):
     if not exists(FLAGS.output_directory):
         makedirs(FLAGS.output_directory)
     process_imdb(FLAGS.img_directory, FLAGS.output_directory,
-                FLAGS.train_shards, FLAGS.validation_shards)
+                 FLAGS.train_shards, FLAGS.validation_shards)
 
 
 if __name__ == '__main__':

@@ -27,6 +27,7 @@ def num_examples(datasets):
         'h36m': 312188,
         'coco': 79344,
         'mpi_inf_3dhp': 147221,  # without S8
+        'imdb': 1642,
         # Below is number for MOSH/mocap:
         'H3.6': 1559985,  # without S9 and S11,
         'CMU': 3934267,

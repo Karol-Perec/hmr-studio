@@ -152,7 +152,7 @@ def process_imdb(img_dir, out_dir, num_shards_train, num_shards_test):
       num_shards: integer number of shards for this data set.
     """
     # Load labels 3 x 14 x N
-    labels = load_mat(join(img_dir, 'joints.mat'))
+    labels = load_mat(join(img_dir, 'result.mat'))
     if labels.shape[0] != 3:
         labels = np.transpose(labels, (1, 0, 2))
 

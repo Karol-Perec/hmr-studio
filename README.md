@@ -4,7 +4,7 @@ Copy unzipped files from https://drive.google.com/file/d/1X2XCYFGMRxqAc4bnF83nGL
 ```
 models/
 ```
-Files structure as above:
+Files structure as below:
 ```
 models/
 ├── eval.graph
@@ -23,7 +23,7 @@ Copy unzipped files from https://drive.google.com/file/d/1Q7UJe04D5YMznCZgKvlgCP
 ```
 datasets/tf_datasets
 ```
-Files structure as above:
+Files structure as below:
 ```
 datasets/
 ├── human
@@ -35,6 +35,31 @@ datasets/
     ├── mpii
     └── mpi_inf_3dhp
 ```
+
+### Imdb wiki dataset preparation
+
+Copy unzipped files from https://drive.google.com/file/d/1JcwYNXFX__HIJ-JSoLNerucfvDq3YFsQ/view?fbclid=IwAR1oFhAfmFfad88orlG68tIqv4KvAX8K5IaEH9NGtdD2k2L2_WaqCJ1ryIg to:
+```
+datasets/human/imdb
+```
+Files structure as below:
+```
+datasets/
+├── tf_datasets
+└── human
+    └── imdb
+        ├── result.mat
+        └── images
+            ├── 0000.jpg
+            ├── ...
+            └── 1641.jpg
+
+```
+Run:
+```
+prepare_datasets.sh
+```
+
 
 ### Training 
 

@@ -11,7 +11,7 @@ import numpy as np
 import tensorflow as tf
 from shutil import copyfile
 
-from common import convert_to_example, ImageCoder
+from .common import convert_to_example, ImageCoder
 
 tf.app.flags.DEFINE_string('img_directory',
                            'datasets/human/imdb',
